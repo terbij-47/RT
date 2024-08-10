@@ -1,0 +1,6 @@
+#include "sphere.h"
+#include "plane.h"
+#include "box.h"
+#include "quadric.h"
+#include "triangle.h"
+#include "csg.h"

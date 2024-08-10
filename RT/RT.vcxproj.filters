@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов\mth">
+      <UniqueIdentifier>{ad6f81f8-c1e3-4bda-9d8e-61660ff4d540}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\win">
+      <UniqueIdentifier>{27b267d1-81cd-4d3b-9074-1056d4c0cc7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\rt">
+      <UniqueIdentifier>{6eadc549-7146-4818-a7cb-92c81aaf0f26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\rt\shapes">
+      <UniqueIdentifier>{07918ebc-a7ac-4bee-be4f-848ab194c63e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\rt\lights">
+      <UniqueIdentifier>{7b4b129a-d5a3-4399-9aa0-7663039bd9a9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="win\win.cpp">
+      <Filter>Файлы ресурсов\win</Filter>
+    </ClCompile>
+    <ClCompile Include="mth\mth.cpp">
+      <Filter>Файлы ресурсов\mth</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="def.h">
+      <Filter>Файлы ресурсов</Filter>
+    </ClInclude>
+    <ClInclude Include="mth\mthdef.h">
+      <Filter>Файлы ресурсов\mth</Filter>
+    </ClInclude>
+    <ClInclude Include="mth\vec2.h">
+      <Filter>Файлы ресурсов\mth</Filter>
+    </ClInclude>
+    <ClInclude Include="mth\vec3.h">
+      <Filter>Файлы ресурсов\mth</Filter>
+    </ClInclude>
+    <ClInclude Include="mth\mth.h">
+      <Filter>Файлы ресурсов\mth</Filter>
+    </ClInclude>
+    <ClInclude Include="mth\compl.h">
+      <Filter>Файлы ресурсов\mth</Filter>
+    </ClInclude>
+    <ClInclude Include="mth\matr.h">
+      <Filter>Файлы ресурсов\mth</Filter>
+    </ClInclude>
+    <ClInclude Include="win\win.h">
+      <Filter>Файлы ресурсов\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\rt_win.h">
+      <Filter>Файлы ресурсов\win</Filter>
+    </ClInclude>
+    <ClInclude Include="rt\rt.h">
+      <Filter>Файлы ресурсов\rt</Filter>
+    </ClInclude>
+    <ClInclude Include="mth\ray.h">
+      <Filter>Файлы ресурсов\mth</Filter>
+    </ClInclude>
+    <ClInclude Include="rt\shapes\shp_base.h">
+      <Filter>Файлы ресурсов\rt\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="rt\lights\light_base.h">
+      <Filter>Файлы ресурсов\rt\lights</Filter>
+    </ClInclude>
+    <ClInclude Include="rt\frame.h">
+      <Filter>Файлы ресурсов\rt</Filter>
+    </ClInclude>
+    <ClInclude Include="rt\shapes\sphere.h">
+      <Filter>Файлы ресурсов\rt\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="rt\shapes\shp.h">
+      <Filter>Файлы ресурсов\rt\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="rt\shapes\plane.h">
+      <Filter>Файлы ресурсов\rt\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="rt\shapes\box.h">
+      <Filter>Файлы ресурсов\rt\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="rt\shapes\quadric.h">
+      <Filter>Файлы ресурсов\rt\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="rt\shapes\triangle.h">
+      <Filter>Файлы ресурсов\rt\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="rt\shapes\csg.h">
+      <Filter>Файлы ресурсов\rt\shapes</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
