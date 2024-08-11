@@ -18,11 +18,12 @@ public:
   // d g i j
   quadric( DBL A, DBL B, DBL C,
            DBL D, DBL E, DBL F,
-           DBL G, DBL H, DBL I, DBL J,  matr Matr = matr() ) : A(A), B(B), C(C),
+           DBL G, DBL H, DBL I, DBL J, surf Surf, matr Matr = matr() ) : A(A), B(B), C(C),
                                               D(D), E(E), F(F),
                                               G(G), H(H), I(I), J(J)
   {
     this->Matr = Matr;
+    this->Surf = Surf;
   }
 
   BOOL __GetIntersection( ray &Ray, intr &Intr ) override

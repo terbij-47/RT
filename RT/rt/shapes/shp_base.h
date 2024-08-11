@@ -7,8 +7,11 @@ struct surf
 {
   vec3 Ka, Kd, Ks;
   DBL Ph = 10;
+  DBL Wl = 0.78;  // коэфф затухания (какая часть света проходит дальше)
+  DBL Kr = 0.15, Wr = 0.15;  // коэфф преломления, коэфф затухания (какая часть света проходит дальше)
 
-  surf( vec3 Ka, vec3 Kd, vec3 Ks, DBL Ph ) : Ka(Ka), Kd(Kd), Ks(Ks), Ph(Ph)
+  surf( vec3 Ka, vec3 Kd, vec3 Ks, DBL Ph, DBL Wl = 0, DBL Kr = 1, DBL Wr = 0 ) : 
+    Ka(Ka), Kd(Kd), Ks(Ks), Ph(Ph), Wl(Wl), Kr(Kr), Wr(Wr)
   {
   }
 
@@ -34,12 +37,22 @@ public:
   {
   }
 
-  vec3 getReflected( VOID )
+  ray getReflected( VOID )
   {
+    DBL Oy = Norm & Ray.Dir;
+    vec3 Dir = Ray.Dir - Norm * Oy * 2;
+    return ray(IntrPoint + Dir * THRESHOLD, Dir);
   }
 
-  vec3 getRefracted( VOID )
+  ray getRefracted( VOID )
   {
+    DBL Proj = Norm & Ray.Dir;
+    vec3 N = Proj < 0 ? Norm : -Norm;
+    DBL sin2A1 = ((-Ray.Dir) % N).len2();
+    vec3 Right = Ray.Dir - Norm * Proj;
+    DBL cos2A2 = (1 - Surf.Kr * Surf.Kr * sin2A1);
+    vec3 Dir = -N * sqrt(cos2A2) + Right.normSelf() * sqrt(1 - cos2A2);
+    return ray(IntrPoint + Dir * THRESHOLD, Dir);
   }
 
 };
@@ -104,7 +117,7 @@ public:
     Intr.Shp = Shp;
     Intr.Param = Param;
     Intr.IntrPoint = Ray[Param];
-    Intr.Norm = Shp->GetNorm(Intr.IntrPoint);
+    Intr.Norm = Shp->__GetNorm(Intr.IntrPoint);
     Intr.Ray = Ray;
     Intr.Surf = Shp->Surf;
   }

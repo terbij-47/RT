@@ -52,6 +52,12 @@ public:
     return vec3<Type>(x * N, y * N, z * N);
   }
 
+  vec3<Type> operator*(const vec3<Type> &v) const
+  {
+    return vec3<Type>(x * v.x, y * v.y, z * v.z);
+  }
+
+
   vec3<Type> operator/(const Type N) const
   {
     return vec3<Type>(x / N, y / N, z / N);

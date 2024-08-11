@@ -18,9 +18,10 @@ public:
     INTER
   };
 
-  csg( shp *Shp1, shp *Shp2, UINT Type, matr Matr ) : Shp1(Shp1), Shp2(Shp2), Type(Type)
+  csg( shp *Shp1, shp *Shp2, UINT Type, surf Surf, matr Matr = matr() ) : Shp1(Shp1), Shp2(Shp2), Type(Type)
   {
     this->Matr = Matr;
+    this->Surf = Surf;
   }
 
 private:

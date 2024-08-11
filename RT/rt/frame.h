@@ -6,11 +6,11 @@
 
 struct camera
 {
-  DBL Near = 1;
+  DBL Near = 10;
   DBL SizeW = 1;
   DBL SizeH = 1;
 
-  vec3 Pos = vec3(0, 2, 2);
+  vec3 Pos = vec3(0, 0.0, 2);
   vec3 At = vec3();
   vec3 Up = vec3(0, 1, 0);
   vec3 Right = vec3(1, 0, 0);
@@ -43,7 +43,7 @@ public:
     memset(Bits, 0x0000FF, sizeof(DWORD) * W * H);
     memset(Screen, 0x00FFFF, sizeof(DWORD) * W * H);
     IsAntia = FALSE;
-    SetCamera(5, 1, 1, vec3(0, 2, 0.001), vec3(), vec3(0, 1, 0));
+    SetCamera(5, 1, 1, vec3(2, 0.4, 3.001), vec3(), vec3(0, 1, 0));
   } /* End of 'frame' constuctor */
 
   /* Struct destructor.

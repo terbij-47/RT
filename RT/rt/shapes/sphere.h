@@ -11,9 +11,10 @@ public:
   DBL R;
   DBL R2;
 
-  sphere( vec3 Pos, DBL R, matr Matr = matr() ) : Pos(Pos), R(R)
+  sphere( vec3 Pos, DBL R, surf Surf, matr Matr = matr() ) : Pos(Pos), R(R)
   {
     this->Matr = Matr;
+    this->Surf = Surf;
     R2 = R * R;
   }
 

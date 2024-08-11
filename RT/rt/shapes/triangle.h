@@ -12,9 +12,10 @@ public:
   vec3 ort1, ort2;
   DBL b1, b2;
 
-  triangle( vec3 P0, vec3 P1, vec3 P2, matr Matr = matr() ) : P0(P0), P1(P1), P2(P2)
+  triangle( vec3 P0, vec3 P1, vec3 P2, surf Surf, matr Matr = matr() ) : P0(P0), P1(P1), P2(P2)
   {
     this->Matr = Matr;
+    this->Surf = Surf;
     b1 = !(P1 - P0);
     b2 = !(P2 - P0);
     ort1 = (P1 - P0) / b1;

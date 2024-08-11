@@ -20,10 +20,11 @@ protected:
   DBL Sizes[6];
 
 public:
-  box( vec3 Pos, vec3 Up, vec3 Right, DBL H, DBL W, DBL D, matr Matr = matr() ) : 
+  box( vec3 Pos, vec3 Up, vec3 Right, DBL H, DBL W, DBL D, surf Surf, matr Matr = matr() ) : 
     Pos(Pos), Up(Up.norm()), H(H), W(W), D(D)
   {
     this->Matr = Matr;
+    this->Surf = Surf;
     Fwd = (Right % this->Up).norm();
     this->Right = this->Up % Fwd;
     // up, -up, right, -right, fwd, -fwd

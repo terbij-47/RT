@@ -10,9 +10,10 @@ public:
   vec3 Pos;
   vec3 Norm;
 
-  plane( vec3 Pos, vec3 Norm, matr Matr = matr() ) : Pos(Pos), Norm(Norm.norm())
+  plane( vec3 Pos, vec3 Norm, surf Surf, matr Matr = matr() ) : Pos(Pos), Norm(Norm.norm())
   {
     this->Matr = Matr;
+    this->Surf = Surf;
   }
 
   BOOL __GetIntersection( ray &Ray, intr &Intr ) override
