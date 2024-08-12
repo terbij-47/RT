@@ -63,6 +63,18 @@ public:
     return *this;
   }
 
+  vec2<Type> operator*( const vec2<Type> v )
+  {
+    return vec2<Type>(x * v.x, y * v.y);
+  }
+
+  vec2<Type> & operator*=( const vec2<Type> v )
+  {
+    x *= v.x;
+    y *= v.y;
+    return *this;
+  }
+
   vec2<Type> & operator/=(const Type N)
   {
     x /= N;
@@ -99,6 +111,11 @@ public:
     return vec2<Type>(y, -x);
   }
 
+  static vec2<Type> rnd( Type Max = 1 )
+  {
+    return vec2<Type>(rand() * Max / RAND_MAX, rand() * Max / RAND_MAX);
+  }
+
   Type operator&( const vec2<Type> &v ) const
   {
     return x * v.x + y * v.y;
@@ -113,6 +130,7 @@ public:
     case 0:
       return x;
     }
+    return INFINITY;
   }
 };
 

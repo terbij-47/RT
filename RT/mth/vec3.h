@@ -57,6 +57,13 @@ public:
     return vec3<Type>(x * v.x, y * v.y, z * v.z);
   }
 
+  vec3<Type> & operator*=( const vec3<Type> &v )
+  {
+    x *= v.x;
+    y *= v.y;
+    z *= v.z;
+    return *this;
+  }
 
   vec3<Type> operator/(const Type N) const
   {
@@ -131,6 +138,11 @@ public:
       return x;
     }
     return INFINITY;
+  }
+
+  static vec3 rnd( Type Max = 1 )
+  {
+    return vec3(rand() * Max / RAND_MAX, rand() * Max / RAND_MAX, rand() * Max / RAND_MAX);
   }
 };
 

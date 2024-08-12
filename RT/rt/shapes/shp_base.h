@@ -43,18 +43,6 @@ public:
     vec3 Dir = Ray.Dir - Norm * Oy * 2;
     return ray(IntrPoint + Dir * THRESHOLD, Dir);
   }
-
-  ray getRefracted( VOID )
-  {
-    DBL Proj = Norm & Ray.Dir;
-    vec3 N = Proj < 0 ? Norm : -Norm;
-    DBL sin2A1 = ((-Ray.Dir) % N).len2();
-    vec3 Right = Ray.Dir - Norm * Proj;
-    DBL cos2A2 = (1 - Surf.Kr * Surf.Kr * sin2A1);
-    vec3 Dir = -N * sqrt(cos2A2) + Right.normSelf() * sqrt(1 - cos2A2);
-    return ray(IntrPoint + Dir * THRESHOLD, Dir);
-  }
-
 };
 
 class shp

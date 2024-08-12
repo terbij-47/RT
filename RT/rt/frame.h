@@ -43,7 +43,7 @@ public:
     memset(Bits, 0x0000FF, sizeof(DWORD) * W * H);
     memset(Screen, 0x00FFFF, sizeof(DWORD) * W * H);
     IsAntia = FALSE;
-    SetCamera(5, 1, 1, vec3(2, 0.4, 3.001), vec3(), vec3(0, 1, 0));
+    SetCamera(5, 1, 1, vec3(0, 0.4, 3.001), vec3(), vec3(0, 1, 0));
   } /* End of 'frame' constuctor */
 
   /* Struct destructor.
@@ -164,9 +164,13 @@ public:
     for (INT x = 0; x < FrameW; x++)
       for (INT y = 0; y < FrameH; y++)
       {
-        vec3 End = Offset + dx * x + dy * y;
-        ray Ray(Start, End - Start);
-        PutPixel(x, y, Scene->Trace(Ray));
+        INT Amount = 1;
+        vec3 Color;
+        for (INT i = 0; i < Amount; i++)
+          Color += Scene->Trace(ray(Start, 
+            Offset + dx * ((DBL)x + (DBL)rand() / RAND_MAX) + dy * ((DBL)y + (DBL)rand() / RAND_MAX) - Start));
+
+        PutPixel(x, y, Color / Amount);
       }
   }
 

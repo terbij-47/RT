@@ -20,21 +20,28 @@ INT WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
   rt Scene;
 
-  surf Surf1(vec3(0.1), vec3(0, 0, 0), vec3(.5), 50, 0, 0.99, 0.9);
-  surf Surf2(vec3(0.2), vec3(1, 0, 1), vec3(.5), 50);
+  surf Surf1(vec3(0.1), vec3(0, 0, 0), vec3(.5), 50, 0, 1.01, 0.9);
+  surf Surf2(vec3(0.2), vec3(1), vec3(.5), 50);
 
-  // Scene << new dirLight(vec3(-1, -1, 1));
-  Scene << new pointLight(vec3(0, 2, 0.3), vec3(1), 0., 0, 0.0);
-  shp* Sphere = new sphere(vec3(0, 0, 0), 0.7, Surf1);
-  shp* Box = new box(vec3(), vec3(0, 1, 0.2), vec3(1, 0, 0), 1, 1, 1, Surf2);
+  // Scene << new dirLight(vec3(-1, -1, -1));
+  // Scene << new projLight(vec3(-2, 3, 0), vec3(0, -1, 0), 180, vec3(1, 0, 0));
+  // Scene << new projLight(vec3(2, 3, 0), vec3(0, -1, 0), 180, vec3(0, 0, 1));
+  // Scene << new softLight(vec3(-2, 3, 0), 1, vec3(1, 0, 0));
+  // Scene << new softLight(vec3(2, 3, 0), 1, vec3(0, 0, 1));
+  Scene << new reflectorLight(vec3(2, 3, 0), vec3(0, -1, 0), vec3(0, 0, 1));
+  // Scene << new projLight(vec3(2, 3, 0), vec3(0, -1, 0), 180, vec3(0, 0, 1));
+
+  // Scene << new softLight(vec3(0, 3, 0));
+  // shp* Sphere = new sphere(vec3(0, 0, 0), 0.7, Surf1);
+  // shp* Box = new box(vec3(), vec3(0, 1, 0.2), vec3(1, 0, 0), 1, 1, 1, Surf2);
   // Scene << new sphere(vec3(0, 0, 0), 1, matr::scale(vec3(1, 1, 1)));
   // Scene << new triangle(vec3(), vec3(0.5, 0, 0), vec3(0, 0, 0.5));
   // Scene << new box(vec3(), vec3(0, 1, 0), vec3(1, 0, 0), 1, 1, 1, Surf1);
-  Scene << new sphere(vec3(0, 0.4, 0), 0.5, Surf1);
-  Scene << new sphere(vec3(-1.5, 0.2, -1.5), 0.3, Surf2);
+  Scene << new sphere(vec3(0, 0.4, 0), 0.5, Surf2);
+  // Scene << new sphere(vec3(-.4, 0.2, -1.5), 0.3, Surf1);
   // Scene << new quadric(-1, 0, 0, 0, 1, 0, 0, 1, 0, -1, Surf1);
   Scene << new plane(vec3(), vec3(0, 1, 0), Surf2);
-  Scene << new csg(Box, Sphere, (UINT)csg::type::SUB, Surf1);
+  // Scene << new csg(Box, Sphere, (UINT)csg::type::SUB, Surf1);
   W.WinFrame.Scene = &Scene;
 
   W.WinFrame.RenderScene();
